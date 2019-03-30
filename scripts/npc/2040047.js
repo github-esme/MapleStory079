@@ -6,7 +6,7 @@
 
 function start() {
     if (cm.getMapId() != 922010000) {
-	cm.sendYesNo("你真的要离开#r组队任务了#k？");
+	cm.sendYesNo("你确定你要出去吗？");
     } else {
 	if (cm.haveItem(4001022)) {
 	    cm.removeAll(4001022);

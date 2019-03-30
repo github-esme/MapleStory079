@@ -2,7 +2,7 @@ var status = 0;
 var cost = 5000;
 
 function start() {
-    cm.sendYesNo("你好,我是码头服务员乔伊。你想离开维多利亚岛城到天空之城吗? 从这站到艾纳斯大陆的#b天空之城#k的船只\r需要花费#b"+cost+" 枫币#k 购买#b#t4031045##k 才可以启航.");
+    cm.sendYesNo("#d#e你好,我是码头售票员乔伊。你想离开金银岛到天空之城吗? 从魔法密林站到神秘岛的#b天空之城#k#d的船只票价是#r#e"+cost+"金币.#k#d你需要买#b#t4031045##k#d才可以上船，你确定是否要购买？");
 }
 
 function action(mode, type, selection) {
@@ -10,7 +10,7 @@ function action(mode, type, selection) {
         cm.dispose();
     else {
         if(mode == 0) {
-            cm.sendNext("你有一些经济的负担而无法搭船对吧?");
+            cm.sendNext("#k#e好的，你想坐船随时来找我。");
             cm.dispose();
             return;
         }
@@ -21,7 +21,7 @@ function action(mode, type, selection) {
                 cm.gainMeso(-cost);
                 cm.dispose();
             } else {
-                cm.sendOk("请问你有 #b"+cost+" 枫币#k? 如果有的话,我劝您检查下身上其他栏位看是否有没有满了.");
+                cm.sendOk("#k#e请确认你是否有足够的金币，或者你的背包已经满了");
                 cm.dispose();
             }
         }

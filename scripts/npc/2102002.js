@@ -35,12 +35,12 @@ function action(mode, type, selection) {
             status++;
         }
         if(mode == 0) {
-            cm.sendNext("你有一些经济的负担而无法搭船对吧?");
+            cm.sendNext("#e#k你暂时不想坐船是吧，等你想坐船再随时回来找我吧。");
             cm.dispose();
             return;
         }
         if(status == 0) {
-    cm.sendYesNo("你好,我是西拉斯。你想离开纳希沙漠到天空之城吗? 从这站到艾纳斯大陆的#b天空之城#k的船只\r需要花费#b"+cost+" 枫币#k 购买#b#t4031045##k 才可以启航.");
+    cm.sendYesNo("#k#e你好,我是码头服务员西拉斯。你想离开阿里安特到天空之城吗？从这里到#b天空之城#k的船大概需要花费#r#e"+cost+"金币#k购买#b#t4031045##k才可以乘坐。你确定要购买吗？");
         } else if(status == 1) {
             if(cm.getMeso() >= cost && cm.canHold(4031045)) {
                 cm.gainItem(4031045,1);

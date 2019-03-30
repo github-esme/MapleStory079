@@ -9,8 +9,8 @@ importPackage(Packages.server.life);
 //變數跟時間設定區
 var closeTime = 120000; //船關閉搭乘的時間
 var beginTime = 120000; //船啟航的時間
-var rideTime = 600000; //搭船所需要的時間
-var invasionTime = 60000; //確認地域巴洛古召喚的時間
+var rideTime = 360000; //搭船所需要的時間   6分钟
+var invasionTime = 120000; //確認地域巴洛古召喚的時間 3分钟召唤
 var Orbis_btf;
 var Boat_to_Orbis;
 var Orbis_Boat_Cabin;

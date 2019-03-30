@@ -4,36 +4,34 @@
 */
 
 var status = -1;
-var exp = 2940;
+var exp = 35000;
 			
 function action(mode, type, selection) {
     var eim = cm.getEventInstance();
     var stage3status = eim.getProperty("stage3status");
-
     if (stage3status == null) {
-	if (cm.isLeader()) { // Leader
-	    var stage3leader = eim.getProperty("stage3leader");
-	    if (stage3leader == "done") {
-
-		if (cm.haveItem(4001022, 32)) { // Clear stage
-		    cm.sendNext("恭喜！你已经通过了第三阶段。快点现在，到第4阶段。");
-		    cm.removeAll(4001022);
-		    clear(3,eim,cm);
-		    cm.givePartyExp(exp, eim.getPlayers());
-		} else { // Not done yet
-		    cm.sendNext("你确定你有收集了 #r32张 #t4001022##k？？");
+		if (cm.isLeader()) { // Leader
+			var stage3leader = eim.getProperty("stage3leader");
+			if (stage3leader == "done") {
+				if (cm.haveItem(4001022, 32)) { // Clear stage
+					cm.sendNext("恭喜你们已经通过了#b第3阶段#k。请通过我身边的传送门进入#r第4阶段#k.");
+					cm.removeAll(4001022);
+					clear(3,eim,cm);
+					cm.givePartyExp(exp, eim.getPlayers());
+				} else { // Not done yet
+					cm.sendNext("你确定你们有收集够#b32张#k#r#t4001022##k吗？");
+				}
+			} else {
+			cm.sendOk("我来告诉你们第三关的内容。在这里有很多怪物和箱子。打退怪物以后你们会得到#b次元的通行证#k，而破坏箱子后会出来怪物，打退这个怪物时也会得到#b次元的通行证#k。最后再让你们队长把收集到的#b32张次元的通行证#k交给我才可以进入下一关，请加油！");
+			eim.setProperty("stage3leader","done");
+			}
+		} else { // Members
+			cm.sendNext("我来告诉你们第三关的内容。在这里有很多怪物和箱子。打退怪物以后你们会得到#b次元的通行证#k，而破坏箱子后会出来怪物，打退这个怪物时也会得到#b次元的通行证#k。最后再让你们队长把收集到的#b32张次元的通行证#k交给我才可以进入下一关，请加油！");
 		}
-	    } else {
-		cm.sendOk("欢迎来到第三阶段。#b遗弃之塔PQ#k 请收集#r#t4001022##k 来找我即可完成任务。");
-		eim.setProperty("stage3leader","done");
-	    }
-	} else { // Members
-	    cm.sendNext("欢迎来到第三阶段。#b遗弃之塔PQ#k 请收集#r#t4001022##k 给你的队长，然后叫队长来找我即可完成任务。");
-	}
     } else {
-	cm.sendNext("恭喜！你已经通过了第三阶段。快点现在，到第4阶段。");
+		cm.sendNext("恭喜你们已经通过了#b第3阶段#k。请通过我身边的传送门进入#r第4阶段#k.");
     }
-    cm.safeDispose();
+	cm.safeDispose();
 }
 
 function clear(stage, eim, cm) {

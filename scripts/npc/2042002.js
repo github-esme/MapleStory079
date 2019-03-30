@@ -46,16 +46,16 @@ function action(mode, type, selection) {
         var carnivalparty = cm.getCarnivalParty();
         if (carnivalparty.getTotalCP() >= 501) {
             rank = "A";
-            exp = 150000;
+            exp = 60000;
         } else if (carnivalparty.getTotalCP() >= 251) {
             rank = "B";
-            exp = 120000;
+            exp = 60000;
         } else if (carnivalparty.getTotalCP() >= 101) {
             rank = "C";
-            exp = 100000;
+            exp = 60000;
         } else if (carnivalparty.getTotalCP() >= 0) {
             rank = "D";
-            exp = 80000;
+            exp = 60000;
         }
         cm.getPlayer().endPartyQuest(1301);
         if (carnivalparty.isWinner()) {
@@ -76,7 +76,7 @@ function action(mode, type, selection) {
             los++;
             cm.getPlayer().updateOneInfo(1301, "lose", "" + los);
             carnivalparty.removeMember(cm.getChar());
-            cm.gainExpR(exp / 2);
+            cm.gainExpR(exp);
         }
         cm.getPlayer().updateOneInfo(1301, "VR", "" + (java.lang.Math.ceil((vic * 100) / los)));
         cm.warp(980000000);

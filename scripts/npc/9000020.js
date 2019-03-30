@@ -8,8 +8,8 @@ Array(702000000,3000,300),
 //Array(600000000,3000,300),
 Array(540000000,3000,300),
 Array(800000000,3000,300),
-Array(701000000,3000,300),
-Array(702100000,3000,300),
+//Array(701000000,3000,300),
+//Array(702100000,3000,300),
 Array(550000000,3000,300)
 );//ÂÃÓÎµØÍ¼²¿·Ö
 var selectedMap = -1;
@@ -32,7 +32,7 @@ function action(mode, type, selection) {
 		status++;
 	else
 		status--;
-	if (cm.getChar().getMapId() != 500000000 && cm.getChar().getMapId() != 702000000 && cm.getChar().getMapId() != 800000000 && cm.getChar().getMapId() != 600000000 && cm.getChar().getMapId() != 540000000 && cm.getChar().getMapId() != 550000000 && cm.getChar().getMapId() != 541000000) {
+	if (cm.getChar().getMapId() != 551000000 && cm.getChar().getMapId() != 500000000 && cm.getChar().getMapId() != 702000000 && cm.getChar().getMapId() != 800000000 && cm.getChar().getMapId() != 600000000 && cm.getChar().getMapId() != 540000000 && cm.getChar().getMapId() != 550000000 && cm.getChar().getMapId() != 541000000) {
 		if (status == 0) {
 			status = 1;
 			if (cm.getJob() == 0) {
@@ -72,7 +72,7 @@ var selStr = "ÏÖÔÚ¾Í¿ÉÒÔÈ¥Íù #bÌ©¹úµÄË®ÉÏÊĞ³¡,ÉÙÁÖËÂ,ÈÕ±¾¹Å´úÉñÉç#kÓÎÀÀÒ»·¬¡£ÔÚ¸
 				cm.dispose();
 			}
 		}	
-	} else if (cm.getChar().getMapId() == 500000000 || cm.getChar().getMapId() == 702000000 || cm.getChar().getMapId() == 800000000 || cm.getChar().getMapId() == 600000000 || cm.getChar().getMapId() == 540000000 || cm.getChar().getMapId() == 550000000 || cm.getChar().getMapId() == 551000000 || cm.getChar().getMapId() == 541000000 || cm.getChar().getMapId() == 220000000 || cm.getChar().getMapId() == 240000000) {
+	} else if (cm.getChar().getMapId() == 500000000 || cm.getChar().getMapId() == 551000000 || cm.getChar().getMapId() == 702000000 || cm.getChar().getMapId() == 800000000 || cm.getChar().getMapId() == 600000000 || cm.getChar().getMapId() == 540000000 || cm.getChar().getMapId() == 550000000 || cm.getChar().getMapId() == 551000000 || cm.getChar().getMapId() == 541000000 || cm.getChar().getMapId() == 220000000 || cm.getChar().getMapId() == 240000000) {
 		if (status == 0) {
 			cm.sendSimple ("ÊÀ½çÂÃÓÎÔõÃ´Ñù£¿ºÜÓĞÈ¤°É¡£\r\n#L0##b·µ»Ø£º#m" + cm.getSavedLocation("WORLDTOUR") + "# #k#l\r\n#L1##b¼ÌĞø¹Û¹â#k#l");
 		} else if (status == 1) {

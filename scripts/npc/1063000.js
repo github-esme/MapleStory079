@@ -2,7 +2,7 @@
  * Location : Sleepywood, forest of patient
  */
 
-var itemSet = new Array(4010003, 4010000, 4010002, 4010005, 4010004, 4010001);
+/*var itemSet = new Array(4010003, 4010000, 4010002, 4010005, 4010004, 4010001);
 var rand = Math.floor(Math.random() * itemSet.length);
 
 
@@ -31,6 +31,30 @@ function action(mode, type, selection) {
 	} else {
 	    cm.gainItem(itemSet[rand], 2);
 	}
+	cm.dispose();
+    }
+}*/
+
+function start() {
+    status = -1;
+    action(1, 0, 0);
+}
+
+function action(mode, type, selection) {
+    if (status >= 2 && mode == 0) {
+	cm.dispose();
+	return;
+    }
+    if (mode == 1) {
+	status++;
+    } else {
+	status--;
+    }
+    if (status == 0) {
+	cm.gainItem(1142018,10,10,10,10,0,0,5,5,0,0,0,0,10,25);
+	cm.warp(105040300);
+    //cm.喇叭(3, "恭喜[" + cm.getPlayer().getName() + "]通过林中之城跳跳获得增加移速勋章");
+	cm.worldMessage("恭喜[" + cm.getPlayer().getName() + "]通关了林中之城(沉睡森林第二层)获得增加移速勋章！大家一起恭喜他/她吧！");
 	cm.dispose();
     }
 }

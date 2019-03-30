@@ -14,6 +14,8 @@ function action(mode, type ,selection){
 		return;
 	}
 	if(status == 1){
+		cm.sendYesNo("这里是让有情人终成眷属的地方，是否要传送到红蛮宫");
+	} else if (status == 2) {
 		cm.saveLocation("WEDDING");
 		cm.warp(700000000 ,0);
 		cm.dispose();

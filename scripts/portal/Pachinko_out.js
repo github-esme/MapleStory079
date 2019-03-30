@@ -1,9 +1,9 @@
 function enter(pi) {
-    var returnMap = pi.getSavedLocation("MULUNG_TC");
+    var returnMap = pi.getSavedLocation("Pachinko_port");
     if (returnMap < 0) {
-        returnMap = 102000000; // to fix people who entered the fm trough an unconventional way
+        returnMap = 101000000; // to fix people who entered the fm trough an unconventional way
     }
-    pi.clearSavedLocation("MULUNG_TC");
+    pi.clearSavedLocation("Pachinko_port");
     pi.warp(returnMap, 0);
     return true;
 }

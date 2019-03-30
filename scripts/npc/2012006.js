@@ -23,7 +23,7 @@ var status = -1;
 var sel;
 
 function start() {
-    cm.sendNext("#w亲爱的 #h #, 我是 #p2012006#.\r\n请问你是否有记得购买船票?");
+    cm.sendNext("#r#e亲爱的冒险家，我是天空之城的码头引导员，请问你是否购买了想前往目的地的船票呢？");
 }
 
 function action(mode, type, selection) {
@@ -33,10 +33,10 @@ function action(mode, type, selection) {
     }
     status++;
     if (status == 0)
-        cm.sendSimple("#w请问有神么可以服务的??\r\n\r\n#L0#去魔法森林#l\r\n#L1#去玩具城#l\r\n#L2#去神木村#l\r\n#L3#去桃花仙境#l\r\n#L4#去纳希沙漠#l\r\n#L5#去耶雷弗#l");
+        cm.sendSimple("#d#e请问你现在想去哪个码头？\r\n\r\n#b#L0#魔法密林#l\r\n#L1#玩具城#l\r\n#L2#神木村#l\r\n#L3#武陵#l\r\n#L4#尼哈沙漠#l\r\n#L5#圣地#l");
     else if (status == 1) {
         sel = selection;
-        cm.sendNext("好 #h #, 我将带你到 #m" + (200000110 + (sel * 10)) + "#");
+        cm.sendNext("#k#e好的,我现在带你到#b#e#m" + (200000110 + (sel * 10)) + "#");
     } else if(status == 2){
         cm.warp(200000110 + (sel * 10));
         cm.dispose();

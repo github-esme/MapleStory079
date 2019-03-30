@@ -10,7 +10,7 @@ var leafre_docked;
 function init() {
     Orbis_btf = em.getChannelServer().getMapFactory().getMap(200000132);
     leafre_btf = em.getChannelServer().getMapFactory().getMap(240000111);
-    Boat_to_Orbis = em.getChannelServer().getMapFactory().getMap(200090110);
+    Boat_to_Orbis = em.getChannelServer().getMapFactory().getMap(200090210); 
     Boat_to_leafre = em.getChannelServer().getMapFactory().getMap(200090200);
     Orbis_docked = em.getChannelServer().getMapFactory().getMap(200000100);
     leafre_docked = em.getChannelServer().getMapFactory().getMap(240000100);
@@ -27,7 +27,7 @@ function scheduleNew() {
     em.setProperty("docked", "true");
     em.setProperty("entry", "true");
     em.schedule("stopEntry", 240000);
-    em.schedule("takeoff", 300000);
+    em.schedule("takeoff", 60000);
 }
 
 function stopEntry() {
@@ -46,7 +46,7 @@ function takeoff() {
     var temp2 = leafre_btf.getCharacters().iterator();
     while(temp2.hasNext())
         temp2.next().changeMap(Boat_to_Orbis, Boat_to_Orbis.getPortal(0));
-    em.schedule("arrived", 600000);
+    em.schedule("arrived", 120000);
 }
 
 function arrived() {

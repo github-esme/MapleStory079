@@ -16,7 +16,7 @@ function action(mode, type, selection) {
         status--;
     }
     if (cm.getMapId() == 920010000) { //inside orbis pq
-        cm.sendOk("请你把所有的云朵打了，凑齐到20个云朵碎片放入地图亭子的光球下。");
+        cm.sendOk("请你把所有的云朵打了，凑齐到20个云朵碎片放入地图亭子的光球下。")
         cm.dispose();
         return;
     }
@@ -27,8 +27,9 @@ function action(mode, type, selection) {
         if (cm.getParty() == null) { // No Party
             cm.sendSimple("How about you and your party members collectively beating a quest? Here you'll find obstacles and problems where you won't be able to beat it unless with great teamwork. If you want to try it, please tell the #bleader of your party#k to talk to me.\r\n\r\n#r要求最小人数: " + minPartySize + " Party Members, 和最低等级 " + minLevel + " 和最高等级 " + maxLevel + ".#b\r\n");
         } else if (!cm.isLeader()) { // Not Party Leader
-            cm.sendSimple("If you want to try the quest, please tell the #bleader of your party#k to talk to me.#b\r\n#L0#我想要用女神的羽毛兑换#v1082322##z1082322##l\r\n#L1#我想要用女神的羽毛兑换#v1072534##z1072534##l");
-        } else {
+            //cm.sendSimple("If you want to try the quest, please tell the #bleader of your party#k to talk to me.#b\r\n#L0#我想要用女神的羽毛兑换#v1082322##z1082322##l\r\n#L1#我想要用女神的羽毛兑换#v1072534##z1072534##l");
+			cm.sendSimple("如果你想做任务，请你们的#b队长#k跟我说话#b\r\n#L0#我想要用女神的羽毛兑换#v1082322##z1082322##l\r\n#L1#我想要用女神的羽毛兑换#v1072534##z1072534##l");
+		} else {
             // Check if all party members are within PQ levels
             var party = cm.getParty().getMembers();
             var mapId = cm.getMapId();

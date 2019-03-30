@@ -25,6 +25,7 @@
 */
 
 function enter(pi) {
-	pi.warp(130010010, "in00");
+	//pi.playerMessage(5, "Investigation complete!");
+	pi.warp(130010010, "out00");
 	return true;
 }

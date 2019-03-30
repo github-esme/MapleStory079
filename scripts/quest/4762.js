@@ -17,9 +17,9 @@ function start(mode, type, selection) {
 			qm.sendNext("恭喜你当前等级已经到达#b10#k级。");
 			}
 		} else if (status == 1) {
-			qm.sendOk("恭喜你等级达到了#r10#k级，你已经正式踏上了怀旧冒险岛的征程，你们最帅的群主江浩为你助力送你点卷=10000点，你可以在商城自行购买双倍哦！\r\n\r\n#fUI/UIWindow.img/QuestIcon/4/0#\r\n1000000金币、点卷=10000点");
+			qm.sendOk("恭喜你等级达到了#r10#k级，你已经正式踏上了怀旧冒险岛的征程，你们最帅群主大佬为你助力送你点卷=1000点，你可以在商城自行购买双倍哦！\r\n\r\n#fUI/UIWindow.img/QuestIcon/4/0#\r\n1000000金币、点卷=10000点");
 			qm.gainMeso(1000000);
-			qm.gainNX(10000);
+			qm.gainNX(1000);
 			qm.forceCompleteQuest(4762);
 			qm.dispose();
 		} 

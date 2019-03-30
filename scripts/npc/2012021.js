@@ -14,7 +14,7 @@ function start() {
 function action(mode, type, selection) {
     status++;
     if(mode == 0) {
-	cm.sendNext("等你考虑好再来找我。");
+	cm.sendNext("#k#e好的，等你想坐船随时回来找我。");
 	cm.dispose();
 	return;
     }
@@ -23,17 +23,17 @@ function action(mode, type, selection) {
 	    cm.sendNext("找不到脚本请联系GM！");
 	    cm.dispose();
 	} else if(flight.getProperty("entry").equals("true")) {
-	    cm.sendYesNo("你想要搭船？？");
+	    cm.sendYesNo("#k#e请问你是否想要乘坐#r#e开往神木村#k#e的船吗？");
 	} else if(flight.getProperty("entry").equals("false") && flight.getProperty("docked").equals("true")) {
-	    cm.sendNext("很抱歉本班船准备开走,乘坐时间表可以通过售票展台查看.");
+	    cm.sendNext("#k#e很抱歉本班船准备开走,乘坐时间表可以通过售票展台查看.");
 	    cm.dispose();
 	} else {
-	    cm.sendNext("很抱歉本班船已经走了,乘坐时间表可以通过售票展台查看.");
+	    cm.sendNext("#k#e很抱歉本班船已经走了,乘坐时间表可以通过售票展台查看.");
 	    cm.dispose();
 	}
     } else if(status == 1) {
 	if(!cm.haveItem(4031331)) {
-	    cm.sendNext("不! 你没有#b#t4031331##k 所以我不能放你走!");
+	    cm.sendNext("#k#e你没有船票,请先去售票员那里购买船票.");
 	} else {
 	    cm.gainItem(4031331, -1);
 	    cm.warp(200000132, 0);

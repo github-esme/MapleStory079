@@ -39,7 +39,7 @@ function action(mode, type, selection) {
         cm.dispose();
     } else {
         if (mode == 0 && status == 1) {
-            cm.sendOk("等您下定决心再次找我吧.");
+            cm.sendOk("#d#e好的，等您下定决心了再来找我吧.");
             cm.dispose();
             return;
         }
@@ -81,24 +81,28 @@ function action(mode, type, selection) {
 		}
 		}
 		if (cm.getJob() == 111 || cm.getJob() == 121 || cm.getJob() == 131 || cm.getJob() == 112 || cm.getJob() == 122 || cm.getJob() == 132 || cm.getJob() == 2111) {	
-	    cm.sendOk("您属于剑士部,但是您已经成功三转了,已经超越了教官的强度了!");
+	    cm.sendOk("#k#e战士修炼之路还很长,请加油！");
 	    cm.dispose();
 	    return;
 		}
             if (!(cm.getJob()==110 || cm.getJob()==120 || cm.getJob()==130 || cm.getJob() == 2110)) {
-				cm.sendOk("请找您的转职教官,您不属于剑士部的滚吧!");
+				cm.sendOk("#d#e我不是你的转职教官，请你去找你的职业教官。");
                 cm.dispose();
                 return;
 			} else if (cm.getPlayer().getLevel() < 70) {
-				cm.sendOk("你的等级尚未满70等");
+				cm.sendOk("#k#e你还没有到70级，不能进行战士第三次转职！");
 				cm.dispose();
 				return;		
             }	
 			if (cm.haveItem(4031057, 1)){
-                cm.sendNext("恭喜你到达这里,最后我将给你一个考验!");			
+				if(cm.haveItem(4031058, 1)){
+				   cm.sendNext("#d#e没想到你能这么顺利的通过了神圣之石的考验!,好的,现在你已经具备第三次转职的资格！点击下一步完成你的三转之路吧.");	
+				}else{ 
+                    cm.sendNext("#d#e恭喜你通过了一转教官力量能力的考验到达我这里,但是这样子还不够,如果你想玩成第三次转职还需要进行智慧方面的考验.");	
+				}				
             } else if (!(cm.haveItem(4031057,1))) {
-				cm.warp(102000003);
-                cm.sendOk("去找 #r剑士转职官#k 他会帮助你的!");
+				//cm.warp(102000003);
+                cm.sendOk("#k#e请先去找一转教官#r武术教练#k完成你在金银岛的第一阶段考验再来找我。");
                 cm.dispose();
             } else if (cm.getPlayer().getRemainingSp() <= (cm.getLevel() - 70) * 3) {
                 cm.sendNext("你的技能点数还没点完..");
@@ -108,29 +112,31 @@ function action(mode, type, selection) {
             }
         } else if (status == 1) {
             if (cm.haveItem(4031058, 1)) {
+				
+				
                 if (cm.getJob()==110) {
                     cm.changeJob(111);
                     //cm.getPlayer().gainAp(5);
 					cm.gainItem(4031057, -1);
 					cm.gainItem(4031058, -1);
-					cm.sendOk("恭喜转职了!");
-					cm.worldMessage("‘转职快报’：恭喜玩家."+ cm.getChar().getName() +"  成功三转-十字军让我们热烈的祝福他/她吧！");
+					cm.sendOk("#e#r恭喜你成功转职为勇士！");
+					cm.worldMessage("【转职快报】：恭喜玩家"+ cm.getChar().getName() +"进行三转成为勇士让我们热烈的祝福他/她吧！");
                     cm.dispose();
                 } else if (cm.getJob()==120) {
                     cm.changeJob(121);
                     //cm.getPlayer().gainAp(5);
 					cm.gainItem(4031057, -1);
 					cm.gainItem(4031058, -1);
-					cm.sendOk("恭喜转职了!");
-					cm.worldMessage("‘转职快报’：恭喜玩家."+ cm.getChar().getName() +"  成功三转-骑士让我们热烈的祝福他/她吧！");
+					cm.sendOk("#e#r恭喜你成功转职为骑士！");
+					cm.worldMessage("【转职快报】：恭喜玩家"+ cm.getChar().getName() +"进行三转成为骑士让我们热烈的祝福他/她吧！");
                     cm.dispose();
                 } else if (cm.getJob()==130) {
                     cm.changeJob(131);
                     //cm.getPlayer().gainAp(5);
 					cm.gainItem(4031057, -1);
 					cm.gainItem(4031058, -1);
-					cm.sendOk("恭喜转职了!");
-					cm.worldMessage("‘转职快报’：恭喜玩家."+ cm.getChar().getName() +"  成功三转-龙骑士让我们热烈的祝福他/她吧！");
+					cm.sendOk("#e#r恭喜你成功转职为龙骑士！");
+					cm.worldMessage("【转职快报】：恭喜玩家"+ cm.getChar().getName() +"进行三转成为龙骑士让我们热烈的祝福他/她吧！");
                     cm.dispose();
                 } else if (cm.getJob()==2110) {
 					cm.changeJob(2111);
@@ -141,12 +147,12 @@ function action(mode, type, selection) {
                     cm.dispose();
 				}
             } else if (cm.haveItem(4031057, 1))
-                cm.sendAcceptDecline("你准备承担最终测试??");
+                cm.sendAcceptDecline("#d#e你准备好接受关于智慧的测试考验了吗？");
             else
                 cm.sendAcceptDecline("但是，我可以让你更加强大。虽然你必须证明不仅是你的实力，但你的知识。你准备好挑战了吗？");
         } else if (status == 2) {
             if (cm.haveItem(4031057, 1)) {
-                cm.sendOk("去找神圣的石头测验吧!!.");
+                cm.sendOk("#d#e好的,测试的内容是去雪原圣地找#r神圣的石头#d进行考验,证明你的智慧,你若通过了,它会给你智慧项链,等你拿到了你再来找我吧.");
                 cm.dispose();
             }
         }

@@ -27,7 +27,7 @@ function scheduleNew() {
     em.setProperty("docked", "true");
     em.setProperty("entry", "true");
     em.schedule("stopEntry", 240000);
-    em.schedule("takeoff", 300000);
+    em.schedule("takeoff", 60000);
 }
 
 function stopEntry() {
@@ -46,7 +46,7 @@ function takeoff() {
     var temp2 = Ludibrium_btf.getCharacters().iterator();
     while(temp2.hasNext())
         temp2.next().changeMap(Train_to_Orbis, Train_to_Orbis.getPortal(0));
-    em.schedule("arrived", 600000);
+    em.schedule("arrived", 120000);
 }
 
 function arrived() {

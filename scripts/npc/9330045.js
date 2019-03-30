@@ -72,7 +72,7 @@ function action(mode, type, selection) {
 	    }  		
 	if (sel == 6) {
 	    cm.sendYesNo("需要购买鱼饵吗？（40000金币/120个）");	
-	    if (cm.canHold(2300000,120) && cm.getMeso() >= 40000) {
+	    /*if (cm.canHold(2300000,120) && cm.getMeso() >= 40000) {
 		if (!cm.haveItem(2300000)) {
 		    cm.gainMeso(-40000);
 		    cm.gainItem(2300000, 120);
@@ -83,7 +83,22 @@ function action(mode, type, selection) {
 	    } else {
 		cm.sendOk("请检查是否有所需的3000000金币或足够的背包空间。");
 	    }
-	    cm.safeDispose();
+	    cm.safeDispose();*/
 	}
-    }
+    } else if ( status == 2) {
+		if(cm.haveItem(2300000)){
+		    cm.sendOk("您已经有鱼饵了");
+			cm.dispose();
+		}else{
+			if(cm.getMeso() < 40000 ){
+			    cm.sendOk("对不起你身上的金币不足！");
+                cm.dispose();				
+			} else{
+			    cm.gainMeso(-40000);
+		        cm.gainItem(2300000, 120);
+			    
+			}
+			cm.dispose();
+		}
+	}
 }	

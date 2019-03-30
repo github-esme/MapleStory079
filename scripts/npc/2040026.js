@@ -24,8 +24,9 @@ function action(mode, type, selection) {
 	if (cm.haveItem(4001020)) {
 	    cm.sendSimple("需要什么服务吗？？#b\r\n#L0#爱奥斯塔 (71楼)#l\r\n#L1#爱奥斯塔 (1楼)#l");
 	} else {
-	    cm.sendOk("你需要有#t4001020# 才可以启动。");
-	    cm.dispose();
+	    //cm.sendOk("你需要有#t4001020# 才可以启动。");
+		cm.sendSimple("需要什么服务吗？？#b\r\n#L0#爱奥斯塔 (71楼)#l\r\n#L1#爱奥斯塔 (1楼)#l");
+	    //cm.dispose();
 	}
     } else if (status == 1) {
 	if (selection == 0) {
@@ -38,7 +39,7 @@ function action(mode, type, selection) {
 	    portal = 4;
 	}
     } else if (status == 2) {
-	cm.gainItem(4001020, -1);
+	//cm.gainItem(4001020, -1);
 	cm.warp(map, portal);
 	cm.dispose();
     }

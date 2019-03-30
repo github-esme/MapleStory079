@@ -17,9 +17,9 @@ function start(mode, type, selection) {
 			qm.sendNext("恭喜你当前等级已经到达#b30#k级。");
 			}
 		} else if (status == 1) {
-			qm.sendOk("恭喜你等级达到了#r30#k级，你已经正式算是怀旧冒险岛的一员了，群主为你助力送你珍贵的黄金枫叶10张！\r\n\r\n#fUI/UIWindow.img/QuestIcon/4/0#\r\n#v4001126# 300、#v4000313# 10张");
-			qm.gainItem(4001126, 300);
-			qm.gainItem(4000313, 10);
+			qm.sendOk("恭喜你等级达到了#r30#k级，你已经正式算是怀旧冒险岛的一员了，群主大佬为你助力送你珍贵的黄金枫叶5张！\r\n\r\n#fUI/UIWindow.img/QuestIcon/4/0#\r\n#v4001126# 100、#v4000313# 5张");
+			qm.gainItem(4001126, 100);
+			qm.gainItem(4000313, 5);
 			qm.forceCompleteQuest(4765);
 			qm.dispose();
 		} 

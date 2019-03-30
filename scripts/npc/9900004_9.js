@@ -30,63 +30,65 @@ function action(mode, type, selection) {
             for (i = 0; i < 10; i++) {
                 text += "";
             }
-			text += "\t\t\t  #e#d欢迎领取#b永久店卡 \r\n\r\n 在线奖励依次为.特殊药水10个-超级药水10个-喇叭3个-枫叶100个-黄金枫叶10张-点卷=50000点、点卷=50000点.\r\n\r\n"
-			text += "#L1##r领取永久雇佣商人！#v5030001#x1#l\r\n\r\n\r\n\r\n"//3
 			
-			if(cm.getPlayer().getGamePoints() >= 60 && cm.getPlayer().getGamePointsPD() == 0){
-					text += "#L2##r"+完成红+"在线时间超过60分钟！"+完成+"#v2000004#x30个\r\n\r\n\r\n"//3
-				} else if(cm.getPlayer().getGamePoints() >= 60 && cm.getPlayer().getGamePointsPD() > 0){
-					text += ""+完成红+"#r在线时间超过60分钟！#l"+完成+"\r\n\r\n"//3
+			text += "\t\t\t #e#d【欢迎进入在线签到】#k \r\n\r\n\t\t\t #k在线奖励分别为:#k\r\n\t\t\t #r1.瞬移石头1个 \r\n \t\t\t 2.超级药水20个\r\n\t\t\t 3.点券500点\r\n\t\t\t 4.枫叶100个\r\n\t\t\t 5.枫叶糖浆10个\r\n\t\t\t 6.点卷=500点\r\n\t\t\t 7.黄金叶10个.\r\n"
+			text += "\t\t#L1##r领取永久雇佣商人#v5030001#x1#l#k\r\n\r\n\r\n"//3
+			text += "\t\t在线时长:#b" + cm.getPlayer().getGamePoints() + "分钟#k#n\t#e领取次数#k:#b" + cm.getPlayer().getGamePointsPD() + "次#n\r\n\r\n"		
+	
+			if(cm.getPlayer().getGamePoints() >= 15 && cm.getPlayer().getGamePointsPD() == 0){
+					text += "\t\t#L2##r"+完成红+"在线时间超过15分钟！"+完成+"#v5041000#x1个\r\n\r\n"//3
+				} else if(cm.getPlayer().getGamePoints() >= 15 && cm.getPlayer().getGamePointsPD() > 0){
+					text += "\r\n\t\t\t"+完成红+"#r在线时间超过15分钟！#l"+完成+"\r\n"//3
 				} else {
-					text += ""+正在进行中蓝+"#r在线时间超过60分钟！#l"+正在进行中+"\r\n\r\n"//3
+					text += "\t\t\t"+正在进行中蓝+"#r在线时间超过15分钟！#l"+正在进行中+"\r\n\r\n"//3
 			}
 			
-			if(cm.getPlayer().getGamePoints() >= 120 && cm.getPlayer().getGamePointsPD() == 1){
-					text += "#L3##r"+完成红+"在线时间超过120分钟！"+完成+"#v2000005#x30个.#l\r\n\r\n\r\n"//3
-				} else if(cm.getPlayer().getGamePoints() >= 120 && cm.getPlayer().getGamePointsPD() > 1){
-					text += ""+完成红+"#r在线时间超过120分钟！#l"+完成+"\r\n\r\n"//3
+			if(cm.getPlayer().getGamePoints() >= 30 && cm.getPlayer().getGamePointsPD() == 1){
+					text += "\t\t#L3##r"+完成红+"在线时间超过30分钟！"+完成+"#v2000005#x20个.#l\r\n\r\n\r\n"//3
+				} else if(cm.getPlayer().getGamePoints() >= 30 && cm.getPlayer().getGamePointsPD() > 1){
+					text += "\r\n\t\t\t"+完成红+"#r在线时间超过30分钟！#l"+完成+"\r\n"//3
 				} else {
-					text += ""+正在进行中蓝+"#r在线时间超过120分钟！#l"+正在进行中+"\r\n\r\n"//3
+					text += "\t\t\t"+正在进行中蓝+"#r在线时间超过30分钟！#l"+正在进行中+"\r\n\r\n"//3
 			}
 			
-			if(cm.getPlayer().getGamePoints() >= 180 && cm.getPlayer().getGamePointsPD() == 2){
-					text += "#L4##r"+完成红+"在线时间超过180分钟！"+完成+"#v5076000#x6个.#l\r\n\r\n\r\n"//3
-				} else if(cm.getPlayer().getGamePoints() >= 180 && cm.getPlayer().getGamePointsPD() > 2){
-					text += ""+完成红+"#r在线时间超过180分钟！#l"+完成+"\r\n\r\n"//3
+			if(cm.getPlayer().getGamePoints() >= 45 && cm.getPlayer().getGamePointsPD() == 2){
+					text += "\t\t#L4##r"+完成红+"在线时间超过45分钟！"+完成+"#点券#500点.#l\r\n\r\n\r\n"//3
+				} else if(cm.getPlayer().getGamePoints() >= 45 && cm.getPlayer().getGamePointsPD() > 2){
+					text += "\r\n\t\t\t"+完成红+"#r在线时间超过45分钟！#l"+完成+"\r\n"//3
 				} else {
-					text += ""+正在进行中蓝+"#r在线时间超过180分钟！#l"+正在进行中+"\r\n\r\n"//3
+					text += "\t\t\t"+正在进行中蓝+"#r在线时间超过45分钟！#l"+正在进行中+"\r\n\r\n"//3
 			}
 			
-			if(cm.getPlayer().getGamePoints() >= 240 && cm.getPlayer().getGamePointsPD() == 3){
-					text += "#L5##r"+完成红+"在线时间超过240分钟！"+完成+"#v4001126#x100个.#l\r\n\r\n\r\n"//3
-				} else if(cm.getPlayer().getGamePoints() >= 240 && cm.getPlayer().getGamePointsPD() > 3){
-					text += ""+完成红+"#r在线时间超过240分钟！#l"+完成+"\r\n\r\n"//3
+			if(cm.getPlayer().getGamePoints() >= 60 && cm.getPlayer().getGamePointsPD() == 3){
+					text += "\t\t#L5##r"+完成红+"在线时间超过60分钟！"+完成+"#v4001126#x100个.#l\r\n\r\n\r\n"//3
+				} else if(cm.getPlayer().getGamePoints() >= 60 && cm.getPlayer().getGamePointsPD() > 3){
+					text += "\r\n\t\t\t"+完成红+"#r在线时间超过60分钟！#l"+完成+"\r\n"//3
 				} else {
-					text += ""+正在进行中蓝+"#r在线时间超过240分钟！#l"+正在进行中+"\r\n\r\n"//3
+					text += "\t\t\t"+正在进行中蓝+"#r在线时间超过60分钟！#l"+正在进行中+"\r\n\r\n"//3
 			}
 			
-			if(cm.getPlayer().getGamePoints() >= 300 && cm.getPlayer().getGamePointsPD() == 4){
-					text += "#L6##r"+完成红+"在线时间超过300分钟！"+完成+"#v4000313#x20.#l\r\n\r\n\r\n"//3
-				} else if(cm.getPlayer().getGamePoints() >= 300 && cm.getPlayer().getGamePointsPD() > 4){
-					text += ""+完成红+"#r在线时间超过300分钟！#l"+完成+"\r\n\r\n"//3 
+			if(cm.getPlayer().getGamePoints() >= 75 && cm.getPlayer().getGamePointsPD() == 4){
+					text += "\t\t#L6##r"+完成红+"在线时间超过75分钟！"+完成+"#v2022117#x10个.#l\r\n\r\n\r\n\r\n"//3
+				} else if(cm.getPlayer().getGamePoints() >= 75 && cm.getPlayer().getGamePointsPD() > 4){
+					text += "\r\n\t\t\t"+完成红+"#r在线时间超过75分钟！#l"+完成+"\r\n"//3 
 				} else {
-					text += ""+正在进行中蓝+"#r在线时间超过300分钟！#l"+正在进行中+"\r\n\r\n"//3
+					text += "\t\t\t"+正在进行中蓝+"#r在线时间超过75分钟！#l"+正在进行中+"\r\n\r\n"//3
 			}
 			
-			if(cm.getPlayer().getGamePoints() >= 360 && cm.getPlayer().getGamePointsPD() == 5){
-					text += "#L7##r"+完成红+"在线时间超过360分钟！"+完成+"点卷=100点#l\r\n\r\n\r\n"//3
-				} else if(cm.getPlayer().getGamePoints() >= 360 && cm.getPlayer().getGamePointsPD() > 5){
-					text += ""+完成红+"#r在线时间超过360分钟！#l"+完成+"\r\n\r\n"//3
+			if(cm.getPlayer().getGamePoints() >= 90 && cm.getPlayer().getGamePointsPD() == 5){
+					text += "\t\t#L7##r"+完成红+"在线时间超过90分钟！"+完成+"点卷500点#l\r\n\r\n\r\n\r\n"//3
+				} else if(cm.getPlayer().getGamePoints() >= 90 && cm.getPlayer().getGamePointsPD() > 5){
+					text += "\r\n\t\t\t"+完成红+"#r在线时间超过90分钟！#l"+完成+"\r\n"//3
 				} else {
-					text += ""+正在进行中蓝+"#r在线时间超过360分钟！#l"+正在进行中+"\r\n\r\n"//3
+					text += "\t\t\t"+正在进行中蓝+"#r在线时间超过90分钟！#l"+正在进行中+"\r\n\r\n"//3
 			}
 			
-			if(cm.getPlayer().getGamePoints() >= 420 && cm.getPlayer().getGamePointsPD() == 6){
-					text += "#L8##r"+完成红+"在线时间超过420分钟！"+完成+"点卷=200点#l\r\n\r\n\r\n"//3
-				} else if(cm.getPlayer().getGamePoints() >= 420 && cm.getPlayer().getGamePointsPD() > 6){
-					text += ""+完成红+"#r在线时间超过420分钟！#l"+完成+"\r\n\r\n"//3
+			if(cm.getPlayer().getGamePoints() >= 120 && cm.getPlayer().getGamePointsPD() == 6){
+					text += "\t\t#L8##r"+完成红+"在线时间超过120分钟！"+完成+"#v4000313#x10个\r\n\r\n\r\n\r\n"//3
+				} else if(cm.getPlayer().getGamePoints() >= 120 && cm.getPlayer().getGamePointsPD() > 6){
+					text += "\r\n\t\t\t"+完成红+"#r在线时间超过120分钟！#l"+完成+"\r\n"//3
 				} else {
-					text += ""+正在进行中蓝+"#r在线时间超过420分钟！#l"+正在进行中+"\r\n\r\n"//3
+					text += "\t\t\t"+正在进行中蓝+"#r在线时间超过120分钟！#l"+正在进行中+"\r\n\r\n"//3
 			}
             cm.sendSimple(text);
         } else if (selection == 1) {
@@ -104,46 +106,46 @@ function action(mode, type, selection) {
             cm.dispose();
 			}
         } else if (selection == 2) {
-			cm.gainItem(2000004, 30);//特殊药水
+			cm.gainItem(5041000, 1);
 			cm.gainGamePointsPD(1);
             cm.sendOk("领取奖励成功！");
-			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了60分钟在线奖励！特殊药水10个.");
+			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了15分钟在线奖励！高级瞬移之石.");
             cm.dispose();
         } else if (selection == 3) {
-			cm.gainItem(2000005, 30);//超级药水
+			cm.gainItem(2000005, 20);
 			cm.gainGamePointsPD(1);
             cm.sendOk("领取奖励成功！");
-			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了120分钟在线奖励！超级药水10个.");
+			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了30分钟在线奖励！超级药水20个.");
             cm.dispose();
         } else if (selection == 4) {
-			cm.gainItem(5076000, 50);//枫叶
+			cm.gainNX(+500);
 			cm.gainGamePointsPD(1);
             cm.sendOk("领取奖励成功！");
-			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了180分钟在线奖励！道具喇叭*3个.");
+			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了45分钟在线奖励！点券500点.");
             cm.dispose();
         } else if (selection == 5) {
 			cm.gainItem(4001126, 100);//枫叶
 			cm.gainGamePointsPD(1);
             cm.sendOk("领取奖励成功！");
-			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了240分钟在线奖励！枫叶x100.");
+			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了60分钟在线奖励！枫叶x100.");
             cm.dispose();
         } else if (selection == 6) {
-			cm.gainItem(4000313, 20);//棉花糖中介币
+			cm.gainItem(2022117, 10);
 			cm.gainGamePointsPD(1);
             cm.sendOk("领取奖励成功！");
-			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了300分钟在线奖励！黄金枫叶20张.");
+			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了75分钟在线奖励！枫叶糖浆10个.");
             cm.dispose();
         } else if (selection == 7) {
-                cm.gainNX(+50000);
+                cm.gainNX(+500);
 			cm.gainGamePointsPD(1);
             cm.sendOk("领取奖励成功！");
-			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了360分钟在线奖励！点卷=50000点.");
+			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了90分钟在线奖励！点卷500点.");
             cm.dispose();
         } else if (selection == 8) {
-                cm.gainNX(+50000);
+            cm.gainItem(4000313, 10);
 			cm.gainGamePointsPD(1);
             cm.sendOk("领取奖励成功！");
-			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了420分钟在线奖励！点卷=50000点.");
+			cm.worldMessage(6,"玩家：["+cm.getName()+"]领取了120分钟在线奖励！黄金叶10个.");
             cm.dispose();
 		}
     }

@@ -26,16 +26,16 @@ var sss ="#fUI/UIWindow.img/QuestIcon/3/0#";
 
 	if (status == 0) {
 
-	    var textz = "\r\n您好，尊敬的 #b#h ##k,欢迎来到怀旧冒险岛#r签到中心#k，\r\n新人记得每天签到，福利多多哦！#l\r\n#b注：以下四种签到奖励，到达等级即可每日领取一次\r\n高等级者可#r兼领数种#k#b签到奖励！#l\r\n";
+	    var textz = "\r\n您好，尊敬的 #b#h ##k,欢迎来到怀旧冒险岛#r签到中心#k，\r\n记得每天签到，福利多多哦！#l\r\n#b注：每日只能领取一次#d\r\n";
 
 
-		textz += "#d#L0##r领取初级签到奖励（LV10）#k\r\n";
+		textz += "#d#L0##r领取10-30级签到奖励#b(40W金币)#k\r\n";
 
-		textz += "#d#L1##r领取中级签到奖励（LV30）#k\r\n";
+		textz += "#d#L1##r领取30-70级签到奖励#b(高级瞬移之石1个)#k\r\n";
 
-		textz += "#d#L2##r领取高级签到奖励（LV70）#k\r\n";
+		textz += "#d#L2##r领取70-120级签到奖励#b(黄金叶子10个)#k\r\n";
 
-		textz += "#d#L3##r领取神级签到奖励（LV120）#k\r\n";
+		textz += "#d#L3##r领取120级签到奖励#b(黄金叶子20个)#k\r\n";
 
                 cm.sendSimple (textz);  
 
@@ -43,75 +43,82 @@ var sss ="#fUI/UIWindow.img/QuestIcon/3/0#";
 	}else if (status == 1) {
 
 	if (selection == 0) {
-if (cm.getLevel()>= 10 && cm.getBossLog('PlayQuest1') < 1) {
+if ((cm.getLevel()>= 10 && cm.getLevel() <30 ) && cm.getBossLog('PlayQuest1') < 1) {
+cm.dispose();
+
+ 			   cm.sendOk("恭喜您签到成功，签到奖励发放到您背包了，请注意查收！#k");
+      			cm.dispose();
+		         cm.setBossLog('PlayQuest1');
+                cm.gainMeso(+ 400000);
+		          cm.dispose();
+	} else if (cm.getLevel()>=30 || cm.getLevel()< 10) {  
+		
+		cm.sendOk("#r你的等级不符合领取此奖励！#k");
+		cm.dispose();
+	} else{
+		cm.sendOk("#r每天只能领取一次该签到奖励哦！#k");
+		cm.dispose();
+	}
+
+
+}
+
+else if (selection == 1) {
+	if ((cm.getLevel()>= 30 && cm.getLevel() < 70 ) && cm.getBossLog('PlayQuest2') < 1) {
 cm.dispose();
 
  			cm.sendOk("恭喜您签到成功，签到奖励发放到您背包了，请注意查收！#k");
       			cm.dispose();
-		cm.setBossLog('PlayQuest1');
-                cm.gainItem(4001126,100);
-                cm.gainNX( + 2000);
-                cm.gainMeso(+ 1000000);
-                cm.gainItemPeriod(5072000,10,1);
-                cm.gainItem(2022118, 10);
+		         cm.setBossLog('PlayQuest2');
+                cm.gainItem(5041000,1);
+		          cm.dispose();
 		cm.dispose();
-	} else 
-		cm.sendOk("#r注:等级达到10级的玩家，每天只能领取一次该签到奖励哦！#k");
+	} else if (cm.getLevel()>=70 || cm.getLevel()< 30){  
+		
+		cm.sendOk("#r你的等级不符合领取此奖励！#k");
 		cm.dispose();
-	    
-
-
-}else if (selection == 1) {
-	if (cm.getLevel()>= 30 && cm.getBossLog('PlayQuest2') < 1) {
-cm.dispose();
-
- 			cm.sendOk("恭喜您签到成功，签到奖励发放到您背包了，请注意查收！#k");
-      			cm.dispose();
-		cm.setBossLog('PlayQuest2');
-                cm.gainItem(4032226, 10);
-                cm.gainItem(4000313, 10);
-                cm.gainNX( + 3000);
-                cm.gainMeso(+ 2000000);
-                cm.gainItemPeriod(5073000,10,1);
+	} else{
+		cm.sendOk("#r每天只能领取一次该签到奖励哦！#k");
 		cm.dispose();
-	} else 
-		cm.sendOk("#r注:等级达到30级的玩家，每天只能领取一次该签到奖励哦！#k");
-		cm.dispose();
+	}
 	    
 
 }else if (selection == 2) {
-	if (cm.getLevel()>= 70 && cm.getBossLog('PlayQuest3') < 1) {
+	if ((cm.getLevel()>= 70 && cm.getLevel() < 120 ) && cm.getBossLog('PlayQuest3') < 1) {
 cm.dispose();
 
  			cm.sendOk("恭喜您签到成功，签到奖励发放到您背包了，请注意查收！#k");
       			cm.dispose();
-		cm.setBossLog('PlayQuest3');
-                cm.gainItem(4000313, 20);
-                cm.gainItem(4000313, 20);
-                cm.gainNX( + 4000);
-                cm.gainMeso(+ 3000000);
-                cm.gainItemPeriod(5390000,10,1);
+		         cm.setBossLog('PlayQuest3');
+                cm.gainItem(4000313,10);
+		          cm.dispose();
+	} else if (cm.getLevel()>=120 || cm.getLevel()< 70){  
+		
+		cm.sendOk("#r你的等级不符合领取此奖励！#k");
 		cm.dispose();
-	} else 
-		cm.sendOk("#r注:等级达到70级的玩家，每天只能领取一次该签到奖励哦！#k");
+	} else{
+		cm.sendOk("#r每天只能领取一次该签到奖励哦！#k");
 		cm.dispose();
+	}
 
 }else if (selection == 3){
-	if (cm.getLevel()>= 120 && cm.getBossLog('PlayQuest4') < 1) {
+	if ((cm.getLevel()>= 120 && cm.getLevel() < 200 ) && cm.getBossLog('PlayQuest4') < 1) {
 cm.dispose();
 
  			cm.sendOk("恭喜您签到成功，签到奖励发放到您背包了，请注意查收！#k");
       			cm.dispose();
-		cm.setBossLog('PlayQuest4');
-                cm.gainItem(4000313, 50);
-                cm.gainItem(4000313, 50);
-                cm.gainNX( + 5000);
-                cm.gainMeso(+ 5000000);
-                cm.gainItemPeriod(5390006,10,1);
+		         cm.setBossLog('PlayQuest4');
+                cm.gainItem(4000313,20);
+		          cm.dispose();
+	
+	} else if (cm.getLevel()>=200 || cm.getLevel()< 120){  
+		
+		cm.sendOk("#r你的等级不符合领取此奖励！#k");
 		cm.dispose();
-	} else 
-		cm.sendOk("#r注:等级达到120级的玩家，每天只能领取一次该签到奖励哦！#k");
+	} else{
+		cm.sendOk("#r每天只能领取一次该签到奖励哦！#k");
 		cm.dispose();
+	}
 
 }else if (selection == 4){
 	if (cm.haveItem(4000273,88) && cm.getBossLog('PlayQuest5') < 1) {

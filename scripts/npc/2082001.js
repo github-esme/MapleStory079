@@ -14,26 +14,26 @@ function start() {
 function action(mode, type, selection) {
     status++;
     if(mode == 0) {
-	cm.sendNext("你有一些经济的负担而无法搭船对吧?");
+	cm.sendNext("#k#e你目前不想去是吧。");
 	cm.dispose();
 	return;
     }
     if (status == 0) {
 	if(flight == null) {
-	    cm.sendNext("找不到此脚本请回报GM");
+	    cm.sendNext("#k#e找不到此脚本请回报GM");
 	    cm.dispose();
 	} else if(flight.getProperty("entry").equals("true")) {
-        cm.sendYesNo("你要搭往神木村的船?");
+        cm.sendYesNo("#k#e请问你是否确定要搭乘开往#r#e天空之城#k#e的船？");
 	} else if(flight.getProperty("entry").equals("false") && flight.getProperty("docked").equals("true")) {
-	    cm.sendNext("很抱歉本班船准备起飞,乘坐时间表可以通过售票展台查看.");
+	    cm.sendNext("#k#e很抱歉本班船准备起飞了，请您耐心等候下一班船吧！");
 	    cm.dispose();
 	} else {
-	    cm.sendNext("请耐心等待几分钟，正在整理里面中！");
+	    cm.sendNext("#k#e请耐心等待几分钟，船大概是5分钟一班。");
 	    cm.dispose();
 	}
     } else if(status == 1) {
 	if(!cm.haveItem(4031045)) {
-	    cm.sendNext("不! 你没有#b#t4031045##k 所以我不能放你走!.");
+	    cm.sendNext("#k#e你没有船票,请先去售票员那里购买船票");
 	} else {
 	    cm.gainItem(4031045, -1);
 	    cm.warp(240000111, 0);

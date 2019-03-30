@@ -14,26 +14,26 @@ function start() {
 function action(mode, type, selection) {
     status++;
     if(mode == 0) {
-	cm.sendNext("你有一些经济的负担而无法搭船对吧?");
+	cm.sendNext("#k#e好的，如果你想坐船随时来找我。");
 	cm.dispose();
 	return;
     }
     if (status == 0) {
 	if(boat == null) {
-	    cm.sendNext("找不到脚本请联系GM！");
+	    cm.sendNext("#k#e找不到脚本请联系GM！");
 	    cm.dispose();
 	} else if(boat.getProperty("entry").equals("true")) {
-	    cm.sendYesNo("你想要搭船？？");
+	    cm.sendYesNo("#r#e船已经到达了，请问你是否现在要乘坐开往天空之城的船呢？");
 	} else if(boat.getProperty("entry").equals("false") && boat.getProperty("docked").equals("true")) {
-	    cm.sendNext("很抱歉本班船准备开走,乘坐时间表可以通过售票展台查看.");
+	    cm.sendNext("#d#e很抱歉本班船刚刚开走了，你现在需要乘坐下一班船，大概在三分钟左右的时间。还请您耐心等待。");
 	    cm.dispose();
 	} else {
-	    cm.sendNext("请耐心等待几分钟，正在整理里面中！");
+	    cm.sendNext("#d#e很抱歉本班船刚刚开走了，你现在需要乘坐下一班船，大概在三分钟左右的时间。还请您耐心等待。");
 	    cm.dispose();
 	}
     } else if(status == 1) {
 	if(!cm.haveItem(4031045)) {
-	    cm.sendNext("不! 你没有#b#t4031045##k 所以我不能放你走!.");
+	    cm.sendNext("#k#e你没有船票,请先去售票员那里购买船票吧");
 	} else {
 	    cm.gainItem(4031045, -1);
 	    cm.warp(101000301, 0);

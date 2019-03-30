@@ -296,7 +296,7 @@ var tjId = Array(
 
 var syxh = Array(
     Array(2340000, 70000, "未定义", 50), //祝福卷轴
-    Array(2049116, 70000, "未定义", 50) //强化混沌卷轴60%
+    Array(2049100, 70000, "未定义", 50) //强化混沌卷轴60%
     );
 
 var tscl = Array(
@@ -1203,159 +1203,85 @@ function action(mode, type, selection) {
         cm.sendOk("#b好的,下次再见.");
         cm.dispose();
     } else {
-
         if (mode == 0) {
             cm.sendOk("#b好的,下次再见.");
             cm.dispose();
             return;
         }
-
         if (mode == 1) {
             status++;
         } else {
             status--;
         }
-
         //---------------------------------------------------------------------------------
 
         if (status == 0) {
-
             var add = "#r怀旧冒险岛#k,下面是本服的游戏商城区,\r\n\r\n";
-
             add += "   您当前位置:#b商城首页#k#r\r\n\r\n\r\n";
-
             add += "" + sss + "\r\n   ";
-
             add += "#L0##e#r点卷商城（该商场购买的物品无法放入商城背包）#l ";
-
             cm.sendSimple(add);
-
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
         } else if (status == 1) {
-
             if (selection == 0) {
-
                 var add = "欢迎来到#r◆◇◆本服#k,下面是本服的游戏商城区.\r\n\r\n";
-
                 add += "   您当前位置:#b商城首页>>点卷商城#k\r\n\r\n";
-
                 add += "   当前点卷余额:#r" + cm.getPlayer().getCSPoints(1) + "#k\r\n\r\n#b";
-
                 add += "#L1#精美时装#l ";
-
                 add += "#L2#戒指名片#l ";
-
                 add += "#L4#混沌祝福#l ";
-
                 add += "#L3#本周推荐#l \r\n";
-
                 add += "#L5#宠物系列#l ";
-
                 add += "#L6#精美武器#l ";
-
                 add += "#L7#精美披风#l ";
-
                 add += "#L10##r特效武器#l#k#b \r\n";
-
                 add += "#L8#精美帽子#l ";
-
                 add += "#L9#精美饰品#l ";
-
                 add += "#L13#情侣套装#l \r\n";
-
                 add += "#L12#我是女神#l ";
-
                 add += "#L11#我是土豪#l ";
-
                 add += "#L14#手套鞋子#l \r\n";
-
                 cm.sendSimple(add);
-
             }
-
         //////////////////////////////////////////////////////////////////////////////////////////////////////
-
         } else if (status == 2) {
-
             if (selection == 1) {
-
                 var add = "欢迎来到#r◆◇◆本服#k,下面是本服的游戏商城区.\r\n\r\n";
-
                 add += "   您当前位置:#b商城首页>>点卷商城>>精美时装#k\r\n\r\n";
-
                 add += "   当前点卷余额:#r" + cm.getPlayer().getCSPoints(1) + "#k\r\n#b";
-
                 for (var i = 0; i < jmsz.length; i++) {
-
                     add += "\r\n#L" + i + "##v" + jmsz[i][0] + "##z" + jmsz[i][0] + "##l#d\r\n\r\n		";
-
                     add += "需要点卷:#r " + jmsz[i][1] + " #d    使用期限:#r " + jmsz[i][3] + "#k#b";
-
                 }
-
                 cm.sendSimple(add);
-
                 xx = 1
-
             } else if (selection == 2) {
-
                 var add = "欢迎来到#r◆◇◆本服#k,下面是本服的游戏商城区.\r\n\r\n";
-
                 add += "   您当前位置:#b商城首页>>点卷商城>>精美名片#k\r\n\r\n";
-
                 add += "   当前点卷余额:#r" + cm.getPlayer().getCSPoints(1) + "#k\r\n#b";
-
                 for (var i = 0; i < jzmp.length; i++) {
-
                     add += "\r\n#L" + i + "##v" + jzmp[i][0] + "##z" + jzmp[i][0] + "##l#d\r\n\r\n		";
-
                     add += "需要点卷:#r " + jzmp[i][1] + " #d    使用期限:#r " + jzmp[i][3] + "#k#b";
-
                 }
-
                 cm.sendSimple(add);
-
                 xx = 2
-
-
             } else if (selection == 3) {
-
                 var add = "欢迎来到#r◆◇◆本服#k,下面是本服的游戏商城区.\r\n\r\n";
-
                 add += "   您当前位置:#b商城首页>>本周推荐#k\r\n\r\n";
-
                 add += "   当前点卷余额:#r" + cm.getPlayer().getCSPoints(1) + "\r\n#b";
-
                 for (var i = 0; i < tjId.length; i++) {
-
                     add += "\r\n#L" + i + "##v" + tjId[i][0] + "##z" + tjId[i][0] + "##l#d\r\n\r\n		";
-
                     add += "需要点卷:#r " + tjId[i][1] + " #d    使用期限:#r " + tjId[i][3] + "#k#b";
-
-
                 }
-
-
                 cm.sendSimple(add);
-
                 xx = 3;
-
             } else if (selection == 4) {
-
                 var add = "欢迎来到#r◆◇◆本服#k,下面是本服的游戏商城区.\r\n\r\n";
-
                 add += "   您当前位置:#b商城首页>>使用消耗#k\r\n\r\n";
-
                 add += "   当前点卷余额:#r" + cm.getPlayer().getCSPoints(1) + "\r\n#b";
-
                 for (var i = 0; i < syxh.length; i++) {
-
                     add += "\r\n#L" + i + "##v" + syxh[i][0] + "##z" + syxh[i][0] + "##l#d\r\n\r\n		";
-
                     add += "需要点卷:#r " + syxh[i][1] + " #d    购买数量:#r " + syxh[i][3] + "#k#b";
-
-
                 }
 
 

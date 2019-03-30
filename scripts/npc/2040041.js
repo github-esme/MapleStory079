@@ -3,7 +3,7 @@
 */
 
 function start() {
-    cm.sendNext("嗨，我是#p2040041# 第六阶段非常简单，只要顺着口号都能过关的，那么剩下时间交给你啰~");
+    cm.sendNext("Hi！我是负责这关的#b#p2040041##k,第6阶段非常简单,只要是老玩家都能过关的,那么请你加油吧！");
 }
 
 function action(mode, type, selection) {

@@ -164,7 +164,7 @@ function clear(stage, eim, cm) {
     cm.showEffect(true, "quest/party/clear");
     cm.playSound(true, "Party1/Clear");
     cm.environmentChange(true, "gate");
-    cm.givePartyExp(5040, eim.getPlayers());
+    cm.givePartyExp(45000, eim.getPlayers());
     // stage 9 does not have a door, might be cause of DC error
 }
 
@@ -192,7 +192,7 @@ function boxStage(cm) {
             party = eim.getPlayers();
             preamble = eim.getProperty("leader" + nthtext + "preamble");
             if (preamble == null) {
-                cm.sendNext("嗨，我是#p2040043# 这一阶段完成后，就可以打BOSS\r\n规则非常简单需要您们团队的默契，那么加油吧！");
+                cm.sendNext("Hi!我来告诉你们这关的内容。在这里有#r1~9#k号九个箱子。需要你们队伍里面#b5#r个人分别站在#b5#r个不同的箱子上,尝试着组合出正确的答案,这很需要你们队伍之间的默契，答对了才能进入下一关,请加油吧！");
                 eim.setProperty("leader" + nthtext + "preamble", "done");
                 eim.setProperty("stage" + nthtext + "combo", Math.floor(Math.random() * curcombo.length).toString());
                 cm.dispose();
@@ -201,8 +201,9 @@ function boxStage(cm) {
                 if (complete == null) {
                     var mapClear = "8stageclear";
                     eim.setProperty(mapClear, "true"); // Just to be sure
-                    cm.sendNext("请赶快到下一个阶段，门已经打开了！");
-                } else {
+                    cm.sendNext("#b传送门已经打开了,但是由于其他特殊的原因,门被#r隐形#k#b起来了.直接在原来的位置按上进入即可.");
+					clear(8, eim, cm);
+				} else {
                     var totplayers = 0;
                     for (i = 0; i < objset.length; i++) {
                         for (j = 0; j < party.size(); j++) {
@@ -243,8 +244,12 @@ function boxStage(cm) {
                             cm.sendNext(outstring);
                             var combo = curcombo[parseInt(eim.getProperty("stage" + nthtext + "combo"))];
                         } else {
-                            cm.sendNext("It looks like you haven't found the 5 " + nthobj + " just yet. Please think of a different combination of " + nthobj + ". Only 5 are allowed to " + nthverb + " on " + nthobj + ", and if you " + nthpos + " it may not count as an answer, so please keep that in mind. Keep going!");
-                            cm.dispose();
+                            //cm.sendNext("你们好像看起来没有找到#b5个正确的箱子#k。请继续尝试站在其他不同的箱子上。如果你们站得太过靠近于箱子的边缘的话,是不能算做答案的。所以请保持站在箱子的中间,加油!");
+                             var complete = eim.getProperty("8stageclear");
+						     var mapClear = "8stageclear";
+							 eim.setProperty(mapClear, "true"); // Just to be sure
+							 cm.sendNext("#b传送门已经打开了,但是由于其他特殊的原因,门被#r隐形#k#b起来了.直接在原来的位置按上进入即可.");/*这段代码可以跳过倒数第二关*/
+                                
                         }
                     }
                 }
@@ -256,16 +261,16 @@ function boxStage(cm) {
         if (status == 0) {
             var complete = eim.getProperty("8stageclear");
             if (complete != null) {
-                cm.sendNext("请赶快到下一个阶段，门已经打开了！");
+                cm.sendNext("#b传送门已经打开了,但是由于其他特殊的原因,门被#r隐形#k#b起来了.直接在原来的位置按上进入即可.");
                 cm.dispose();
             } else {
-                cm.sendNext("请找队长来找我。");
+                cm.sendNext("请你们的队长来找我。");
                 cm.dispose();
             }
         } else {
             var complete = eim.getProperty("8stageclear");
             if (complete != null) {
-                cm.sendNext("请赶快到下一个阶段，门已经打开了！");
+                cm.sendNext("#b传送门已经打开了,但是由于其他特殊的原因,门被#r隐形#k#b起来了.直接在原来的位置按上进入即可.");
                 cm.dispose();
             }
             cm.dispose();

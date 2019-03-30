@@ -40,19 +40,19 @@ function action(mode, type, selection) {
 
 			if (cm.haveItem(4031010)) {
 				if (status == 0)
-					cm.sendNext("噢, 你是 #b赫丽娜#k 介绍来的吗")
+					cm.sendNext("#d#e你好，你是#b赫丽娜#k#d介绍来的吗？");
 				else if (status == 1)
-					cm.sendNextPrev("所以你要证明你的实力吗 ? 很好...");
+					cm.sendNextPrev("#d#e所以你现在是要证明你的实力吗？很好,我欣赏你...");
 				else if (status == 2)
-					cm.sendNextPrev("我可以给你一次机会,请你把握.");
+					cm.sendNextPrev("#d#e我可以给你考验的机会,请你自己把握.");
 				else if (status == 3)
-					cm.sendYesNo("请给我 #b30 #t4031013##k. 祝你好运.");
+					cm.sendYesNo("#d#e请打败考验场的怪物收集#r30个黑珠#d给我,这样才能完成测试,祝你好运.");
 				else if (status == 4) {
 					cm.warp(108000100, 0);
 					cm.dispose();
 				}
 			} else {
-				cm.sendOk("很抱歉,我需要 #b赫丽娜的信件#k 请去找赫丽娜拿取谢谢");
+				cm.sendOk("#d#e很抱歉,我需要#b赫丽娜的信件#k,请去找赫丽娜拿取谢谢");
 				cm.dispose();
 			}
     }

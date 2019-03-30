@@ -5,7 +5,8 @@ var 正方形 = "#fUI/UIWindow/Quest/icon3/6#";
 var 蓝色箭头 = "#fUI/UIWindow/Quest/icon2/7#";
 function start() {
     status = -1;
-
+	 cm.sendOk("你好");
+     cm.dispose();
     action(1, 0, 0);
 }
 function action(mode, type, selection) {

@@ -19,8 +19,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-importPackage(net.sf.cherry.server.maps);
-importPackage(net.sf.cherry.net.channel);
+
 
 /*
 Ludi PQ: 4th stage to 4th stage portal
@@ -28,16 +27,17 @@ Ludi PQ: 4th stage to 4th stage portal
 
 function enter(pi) {
 	var nextMap = 922010400;
-	var nextPortal = "in01";
-	cm.serverNotice("转" + nextMap + " "+nextPortal);
+	var nextPortal = "in02";
 	var eim = pi.getPlayer().getEventInstance();
 	var target = eim.getMapInstance(nextMap);
 	var targetPortal = target.getPortal(nextPortal);
-	cm.serverNotice("转" + target + " "+targetPortal);
-	if(eim == null){
+     
+	 if(eim == null){
 	    pi.warp(nextMap, nextPortal);
-	}else{
-	    pi.warp(target, targetPortal);
-	}
-	return true;
+	 } else {
+		 pi.getPlayer().changeMap(target, targetPortal);
+
+	 }
+
+
 }

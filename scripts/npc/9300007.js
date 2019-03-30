@@ -22,7 +22,8 @@ function action(mode, type, selection) {
     } else if (status == 2) {
         if (selection == 1) {
             if (cm.getParty() == null) {
-                cm.sendNext("请与你的另一半组队后找我");
+                //cm.sendNext("请与你的另一半组队后找我");
+				cm.warpParty(700000100);
                 cm.dispose();
                 return;
             }

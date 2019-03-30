@@ -116,18 +116,19 @@ function action(mode, type, selection) {
             } else {
                 var complete = eim.getProperty(curMap + "stageclear");
                 if (complete != null) {
-                    cm.sendNext("Please hurry on to the next stage, the portal opened!");
+                    cm.sendNext("赶紧进入下一关吧！传送门已经开了！");
                     cm.dispose();
                 } else {
                     var numpasses = party.size() - 1; // All the players in the party need to get a pass besides the leader.
                     var strpasses = "#b" + numpasses + " passes#k";
                     if (!cm.haveItem(4001008, numpasses)) {
+						//cm.sendOk(numpasses);
                         cm.sendNext("我很抱歉，但你的通行证数量不对。你需要给我正确的次数；它应该是你的成员数量减去的队长的数量，告诉你的成员来解决问题，收集通行证，并把他们交给你.");
                         cm.dispose();
                     } else {
                         cm.sendNext("祝贺你们成功通关，快快进入下一关吧，时间有限！！！");
                         clear(1, eim, cm);
-                        cm.givePartyExp(20000, party);
+                        cm.givePartyExp(4000, party);
                         cm.gainItem(4001008, -numpasses);
                         cm.dispose();
                     // TODO: Make the shiny thing flash
@@ -196,7 +197,7 @@ function action(mode, type, selection) {
                     party = eim.getPlayers();
                     cm.gainItem(4001008, -10);
                     clear(5, eim, cm);
-                    cm.givePartyExp(20000, party);
+                    cm.givePartyExp(12000, party);
                     cm.dispose();
                 } else { // Not done yet
                  	cm.sendNext("你好，欢迎来到第5阶段，到处走走，可能会发现很多凶猛的怪物，打败它们，获取通行证，再把他们交给我。记住，怪物可能比你强大很多，请小心一点，祝你通过这一关。");
@@ -324,11 +325,11 @@ function rectanglestages (cm) {
 							
                             var exp = 0;
 							if(curMap == 2){
-								exp = 20000;
+								exp = 4500;
 							}else if(curMap == 3){
-							exp = 20000;
+							exp = 6000;
 							}else if(curMap == 4){
-							exp = 20000;
+							exp = 7500;
 							}
                             cm.givePartyExp(exp, party);
                             cm.dispose();

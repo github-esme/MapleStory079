@@ -30,9 +30,9 @@
 **/
 
 var status;
-var minLevel = 21;
+var minLevel = 20;
 var maxLevel = 200;
-var minPlayers = 1;
+var minPlayers = 3;
 var maxPlayers = 6;
 
 function start() {
@@ -55,8 +55,8 @@ function action(mode, type, selection) {
             }
 			//显示物品ID图片用的代码是  #v这里写入ID#
             text += "#d亲爱的岛民你好！#l\r\n这里是废弃都市组队任务，要求3~6人，等级在21~200级即可开始废弃组队任务,召集小伙伴一起通关吧！。\r\n\r\n"//3
-            text += "#L1##r开始组队副本#l\r\n"//3
-			//text += "#L2##r副本固定奖励#l\r\n\r\n"//3
+            text += "#L1##r开始进行组队任务#l\r\n"//3
+			text += "#L2##b我要换绿黏液鞋子#v1072634##l\r\n\r\n"//3
             cm.sendSimple(text);
 	} else if (selection == 1) {
         if (cm.getParty() == null) { // No Party

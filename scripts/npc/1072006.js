@@ -22,9 +22,9 @@
 
 function start() {
     if (cm.haveItem(4031013,30)) {
-        cm.sendNext("wow 果然是个大侠恭喜通过这次个考验 你已经是个强大的弓箭手了所以我将颁赠给你神秘的小礼物.");
+         cm.sendNext("#d#e不错，你带来了30个#k黑珠#d，恭喜你完成这次考验。");
     } else {
-        cm.sendOk("你还没有 #b30 #t4031013##k. 请收集完毕再来找我,祝你好运.");
+        cm.sendOk("#d#e你还没有收集到30个#k黑珠#d，收集完了再来找我");
         cm.dispose();
     }
 }

@@ -22,7 +22,10 @@ function action(mode, type, selection) {
 	if (cm.haveItem(4001020)) {
 	    cm.sendYesNo("你是否要使用#t4001020# 传送到#m221022900# 呢？？");
 	} else {
-	    cm.sendOk("你需要有#t4001020# 才可以启动。");
+	    //cm.sendOk("你需要有#t4001020# 才可以启动。");
+	    //cm.dispose();
+		//cm.gainItem(4001020, -1);
+	    cm.warp(221022900, 3);
 	    cm.dispose();
 	}
     } else if (status == 1) {

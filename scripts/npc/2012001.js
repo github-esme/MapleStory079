@@ -14,26 +14,26 @@ function start() {
 function action(mode, type, selection) {
     status++;
     if(mode == 0) {
-	cm.sendNext("等你考虑好再来找我。");
+	cm.sendNext("#k#e等你考虑好再来找我。");
 	cm.dispose();
 	return;
     }
     if (status == 0) {
 	if(boat == null) {
-	    cm.sendNext("找不到脚本请联系GM！");
+	    cm.sendNext("#k#e找不到脚本请联系GM！");
 	    cm.dispose();
 	} else if(boat.getProperty("entry").equals("true")) {
-	    cm.sendYesNo("你想要搭船？？");
+	    cm.sendYesNo("#k#e船已经到达了，请问你是否要乘坐#b#e前往魔法密林#k#e的船？");
 	} else if(boat.getProperty("entry").equals("false") && boat.getProperty("docked").equals("true")) {
-	    cm.sendNext("很抱歉本班船准备开走,乘坐时间表可以通过售票展台查看.");
+	    cm.sendNext("#k#e很抱歉本班船准备开走,乘坐时间表可以通过售票展台查看");
 	    cm.dispose();
 	} else {
-	    cm.sendNext("很抱歉本班船已经走了,乘坐时间表可以通过售票展台查看.");
+	    cm.sendNext("请耐心等待几分钟，船还没来.");
 	    cm.dispose();
 	}
     } else if(status == 1) {
 	if(!cm.haveItem(4031047)) {
-	    cm.sendNext("不! 你没有#b#t4031047##k 所以我不能放你走!");
+	    cm.sendNext("#k#e对不起，你没有船票，请先去售票员那里购买船票.");
 	} else {
 	    cm.gainItem(4031047, -1);
 	    cm.warp(200000112, 0);

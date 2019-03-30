@@ -15,7 +15,7 @@ function enter(pi) {
 		return false;	}
 	else {
 		pi.getPlayer().changeMap(target, targetPortal);
-	pi.removeAll(4001022);
+		pi.removeAll(4001022);
 		return true;
 	}
 }

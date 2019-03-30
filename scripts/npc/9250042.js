@@ -1,0 +1,7 @@
+/*
+ * 
+ */
+
+function start() {
+    cm.dispose();
+}

@@ -3,7 +3,7 @@
 **/
 
 var status;
-var exp = 4620;
+var exp = 50000;
 			
 function start() {
     status = -1;
@@ -20,26 +20,26 @@ function action(mode, type, selection) {
 	    if (stage7leader == "done") {
 
 		if (cm.haveItem(4001022,3)) { // Clear stage
-		    cm.sendNext("恭喜！你已经通过了第七阶段。快点现在，到第8阶段。");
+		    cm.sendNext("恭喜你们已经通过了#b第7阶段#k。请通过我身边的传送门进入#r第8阶段#k.");
 		    cm.removeAll(4001022);
 		    clear(7, eim, cm);
 		    cm.givePartyExp(exp, eim.getPlayers());
 		    cm.dispose();
 		} else { // Not done yet
-		    cm.sendNext("你确定你有收集了 #r3张 #t4001022##k？？");
+		    cm.sendNext("你确定你们有收集够#b3张#k#r#t4001022##k吗？");
 		}
 		cm.dispose();
 	    } else {
-		cm.sendOk("欢迎来到第七阶段。#b遗弃之塔PQ#k 请收集#r#t4001022##k 来找我即可完成任务。");
+		cm.sendOk("欢迎来到#b废弃的塔#k第7阶段,请收集3张#r#t4001022##k来找我即可完成任务.");
 		eim.setProperty("stage7leader","done");
 		cm.dispose();
 	    }
 	} else { // Members
-	    cm.sendNext("欢迎来到第七阶段。#b遗弃之塔PQ#k 请收集#r#t4001022##k 给你的队长，然后叫队长来找我即可完成任务。");
+	    cm.sendNext("欢迎来到#b废弃的塔#k第7阶段,请收集3张#r#t4001022##k给你的队长,然后叫队长来找我即可完成任务。");
 	    cm.dispose();
 	}
     } else {
-	cm.sendNext("恭喜！你已经通过了第七阶段。快点现在，到第8阶段。");
+	cm.sendNext("恭喜你们已经通过了#b第7阶段#k。请通过我身边的传送门进入#r第8阶段#k.");
 	cm.dispose();
     }
 }

@@ -14,36 +14,36 @@ function action(mode, type, selection) {
 
     if (status == 0) {
 	if (!(cm.getJob() == 511 || cm.getJob() == 521)) {
-	    cm.sendOk("为什么你要见我??还有你想要问我关于什么事情??");
+	    cm.sendOk("#k#e请问你找我有什么事情吗？");
 	    cm.dispose();
 	    return;
 	} else if (cm.getPlayer().getLevel() < 120) {
-	    cm.sendOk("你等级尚未到达120级.");
+	    cm.sendOk("#e#k你还不够强大...不能进行第四次转职....");
 	    cm.dispose();
 	    return;
 	} else {
 		if (cm.getJob() == 511){
-		    cm.sendSimple("恭喜你有资格4转. \r\n请问你想4转吗??\r\n#b#L0#我想成为拳霸.#l\r\n#b#L1#像我想一下...#l");
+		    cm.sendSimple("#d#e一路走来不容易,在你成长的过程中我有跟你的教官们都听说过你,你成长得速度真的很快.如今你已经拥有最后一次转职的机会.请你好好把握珍惜.当然你想转职,你必须先完成我交给你的任务,来证明你的实力.\r\n\r\n#r#L0#我想成为冲锋队长#l\r\n#b#L1#让我再想一下#l");
 		} else if (cm.getJob() == 521){
-		    cm.sendSimple("恭喜你有资格4转. \r\n请问你想4转吗??\r\n#b#L0#我想成为枪神.#l\r\n#b#L1#像我想一下...#l");
+		    cm.sendSimple("#d#e一路走来不容易,在你成长的过程中我有跟你的教官们都听说过你,你成长得速度真的很快.如今你已经拥有最后一次转职的机会.请你好好把握珍惜.当然你想转职,你必须先完成我交给你的任务,来证明你的实力.\r\n\r\n#r#L0#我想成为船长#l\r\n#b#L1#让我再想一下#l");
 	    } else {
-		cm.sendOk("好吧假如你想要4转麻烦再来找我");
+		cm.sendOk("#e#k那好吧，等你考虑好进行四转再来找我。");
 	    cm.dispose();
 		return;
 	    }
 	}
     } else if (status == 1) {
 	if (selection == 1) {
-		cm.sendOk("好吧假如你想要4转麻烦再来找我");
+		cm.sendOk("#e#k那好吧，等你考虑好进行四转再来找我。");
 	    cm.dispose();
 	    return;
 	}
-	if (cm.getPlayerStat("RSP") > (cm.getPlayerStat("LVL") - 120) * 3) {
+	/*if (cm.getPlayerStat("RSP") > (cm.getPlayerStat("LVL") - 120) * 3) {
 	    cm.sendOk("你的技能点数还没点完..");
 	    cm.dispose();
 	    return;
-	} else if (!cm.haveItem(4031348, 1)){
-		cm.sendOk("我需要#t4031348# 1张。");
+	}*/ else if (!cm.haveItem(4031348, 1)){
+		cm.sendOk("#d#e想进行第四次转职你必须先给我#v4031348##r#z4031348##d,至于要怎么获取,这个需要你自己去发现.");
 		cm.dispose();
 		return;
 	} else {
@@ -57,7 +57,8 @@ function action(mode, type, selection) {
 		    cm.teachSkill(5121002,0,10);
 		    cm.teachSkill(5121009,0,10);
 			cm.gainItem(4031348, -1);
-		    cm.sendNext("恭喜你转职为 #b拳霸#k.我送你一些神秘小礼物^^");
+		    cm.sendNext("#r#e祝贺你四转为#b冲锋队长#k#r！我送了你一本冒险岛勇士的技能册，冒险之路还很长，请你继续加油吧！");
+			cm.worldMessage("【转职快报】：恭喜玩家"+ cm.getChar().getName() +"进行四转成为冲锋队长让我们热烈的祝福他/她吧！");
 		} else if (cm.getJob() == 521) {
 		    cm.changeJob(522);
 		    cm.teachSkill(5221004,0,10);
@@ -65,7 +66,8 @@ function action(mode, type, selection) {
 		    cm.teachSkill(5220002,0,10);
 		    cm.teachSkill(5220011,0,10);
 			cm.gainItem(4031348, -1);
-		    cm.sendNext("恭喜你转职为 #b枪神#k.我送你一些神秘小礼物^^");
+		    cm.sendNext("#r#e祝贺你四转为#b船长#k#r！我送了你一本冒险岛勇士的技能册，冒险之路还很长，请你继续加油吧！");
+			cm.worldMessage("【转职快报】：恭喜玩家"+ cm.getChar().getName() +"进行四转成为船长让我们热烈的祝福他/她吧！");
 		}
 	    } else {
 		cm.sendOk("你没有多的栏位请清空再来尝试一次!");
@@ -76,12 +78,12 @@ function action(mode, type, selection) {
 	
     } else if (status == 2) {
 	if (cm.getJob() == 512) {
-	    cm.sendNext("不要忘记了这一切都取决于你练了多少.");
+	    cm.sendNextPrev("#d#e永远不要忘记现在你得到的这一切都取决于你练了多少...");
 	} else {
-	    cm.sendNext("不要忘记了这一切都取决于你练了多少.");
+	    cm.sendNextPrev("#d#e永远不要忘记现在你得到的这一切都取决于你练了多少...");
 	}
     } else if (status == 3) {
-	cm.sendNextPrev("我已你为荣.");
+	cm.sendNextPrev("#d#e我已经以你为荣...");
     } else if (status == 4) {
 	cm.dispose();
     }

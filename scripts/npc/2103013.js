@@ -23,11 +23,13 @@ function action(mode, type, selection) {
             }
             cm.dispose();
         } else if (cm.getMapId() >= 926010001 && cm.getMapId() <= 926010004) {
+			cm.sendYesNo("你想要离开这里？？");
             cm.warp(926010000, 0);
             cm.dispose();
         } else if (cm.getMapId() >= 926010100 && cm.getMapId() <= 926013504) {
             cm.sendYesNo("你想要离开这里？？");
-            status = 99;
+			cm.warp(926010000, 0);
+			cm.dispose();
         } else {
             cm.sendSimple("我的名字是#p2103013#\r\n#b#e#L1#进入金字塔副本#l#n\r\n#L2#进入法老小雪球副本#l\r\n#L3#兑换法老王腰带#l\r\n#L4#兑换勋章#l#k");
         }
@@ -99,6 +101,7 @@ function action(mode, type, selection) {
             } else if (cont_ && !cm.isLeader()) {
                 cm.sendOk("请找您的队长来找我说话。");
             }
+			cm.dispose();
         } else if (section == 2) {
             var itemid = 4001322 + selection;
             if (!cm.haveItem(itemid, 1)) {
@@ -110,6 +113,7 @@ function action(mode, type, selection) {
                     cm.sendOk("目前金字塔副本满人，请稍后再尝试。");
                 }
             }
+			cm.dispose();
         } else if (section == 3) {
             if (selection == 0) {
 				if (cm.canHold(1132012)) {
@@ -134,6 +138,7 @@ function action(mode, type, selection) {
 				}
 					cm.sendOk("请空出一些空间。");
             }
+			cm.dispose();
         }
         cm.dispose(); //todo
     } else if (status == 100) {

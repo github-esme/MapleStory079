@@ -3,7 +3,7 @@
 **/
 
 var status;
-var exp = 5950;
+var exp = 50000;
 			
 function start() {
     status = -1;
@@ -16,19 +16,19 @@ function action(mode, type, selection) {
 
 	if (eim.getProperty("crackLeaderPreamble") == null) {
 	    eim.setProperty("crackLeaderPreamble", "done");
-	    cm.sendNext("请干掉 窗台上的 #b黑色老鼠#k 然后就会召唤 #b剧情战斗机#k 干掉之后捡到钥匙再来找我。");
+	    cm.sendNext("恭喜你们进入到最后阶段,请击退平台上的老鼠召唤#r阿丽莎乐#k,并且击败它。找回被偷走#b次元的钥匙#k交给我.");
 	    cm.dispose();
 	} else {
 	    if (cm.haveItem(4001023)) {
 		status = 0;
-		cm.sendNext("恭喜完成，想要前往颁奖之地？");
+		cm.sendNext("恭喜你们打败了#r阿丽莎乐#k，是否要前往#b颁奖之地#k？");
 	    } else {
-		cm.sendNext("请打败#r巨型战斗机#k 给我#t4001023#。");
+		cm.sendNext("请击退平台上的老鼠召唤#r阿丽莎乐#k,并且击败它。找回被偷走#b次元的钥匙#k交给我.");
 		cm.dispose();
 	    }
 	}
     } else if (status == -1 && !cm.isLeader()) {
-	cm.sendNext("请干掉 窗台上的 #b黑色老鼠#k 然后就会召唤 #b剧情战斗机#k 干掉之后捡到钥匙再来来请队长找我。");
+	cm.sendNext("请击退平台上的老鼠召唤#r阿丽莎乐#k,并且击败它。找回被偷走#b次元的钥匙#k交给我.");
 	cm.dispose();
     } else if (status == 0 && cm.isLeader()) {
 	var eim = cm.getEventInstance();
@@ -37,8 +37,9 @@ function action(mode, type, selection) {
 
 	var players = eim.getPlayers();
 	cm.givePartyExp(exp, players);
+	cm.givePartyItems(4031854, 1);
 	eim.setProperty("cleared", "true"); //set determine
-	eim.restartEventTimer(60000);
+	eim.restartEventTimer(30000);
 	var bonusmap = cm.getMap(922011000);
 	for (var i = 0; i < players.size(); i++) {
 	    players.get(i).changeMap(bonusmap, bonusmap.getPortal(0));

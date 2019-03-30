@@ -23,7 +23,7 @@ function action(mode, type, selection) {
 	if (cm.haveItem(4001020)) {
 	    cm.sendSimple("需要什么服务吗？？ #b\r\n#L0#爱奥斯塔 (100楼)#l\r\n#L1#爱奥斯塔 (41楼)#l");
 	} else {
-	    cm.sendOk("你需要有#t4001020# 才可以启动。");
+	    cm.sendOk("#d#e我和第一个魔法石不同,我需要玩具塔的魔法卷轴才会帮你传送.");
 	    cm.dispose();
 	}
     } else if (status == 1) {

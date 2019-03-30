@@ -33,10 +33,10 @@ function enter(pi) {
 	var target = eim.getMapInstance(nextMap);
 	var targetPortal = target.getPortal(nextPortal);
 	//if(eim == null){
-	   pi.warp(nextMap, nextPortal);
+	   //pi.warp(nextMap, nextPortal);
+	pi.getPlayer().changeMap(target, targetPortal);
 	//}else{
 	  //  pi.warp(target, targetPortal);
 	//}
 	return true;
 }
-

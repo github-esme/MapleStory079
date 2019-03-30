@@ -9,5 +9,5 @@ function enter(pi) {
 		pi.warp(1010400, 4);
 	else
 		pi.playerMessage("接受麦加的修炼的冒险家才可以入场.");
-	return true;
+	return false;
 }

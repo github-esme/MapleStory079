@@ -11,6 +11,5 @@ function enter(pi) {
 	var target = eim.getMapInstance(nextMap);
 	var targetPortal = target.getPortal("st00");
 	pi.getPlayer().changeMap(target, targetPortal);
-	pi.removeAll(4001022);
 	return true;
 }

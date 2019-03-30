@@ -1,4 +1,4 @@
-function start() {
+/*function start() {
     status = -1;
 
     action(1, 0, 0);
@@ -51,7 +51,7 @@ function action(mode, type, selection) {
 			}else if(!cm.beibao(5,1)){
             cm.sendOk("现金栏空余不足1个空格！");
             cm.dispose();
-			}else */if(cm.haveItem(4170002,30) && cm.haveItem(1113164,1)){
+			}else (这里有个注释) if(cm.haveItem(4170002,30) && cm.haveItem(1113164,1)){
 				cm.gainItem(4170002, -30);
 				cm.gainItem(1113164, -1);
 				cm.gainItem(1113165,4,4,4,4,400,400,4,4,50,50,15,15,5,5);
@@ -65,6 +65,50 @@ function action(mode, type, selection) {
 			}
 		}
     }
+}*/
+
+function start() {
+    status = -1;
+
+    action(1, 0, 0);
 }
+function action(mode, type, selection) {
+    if (mode == -1) {
+        cm.dispose();
+    }
+    else {
+        if (status >= 0 && mode == 0) {
+
+            cm.sendOk("感谢你的光临！");
+            cm.dispose();
+            return;
+        }
+        if (mode == 1) {
+            status++;
+        }
+        else {
+            status--;
+        }
+        if (status == 0) {
+            if(cm.haveItem(4001322,14)){
+				cm.gainItem(4001322, -14);
+				//cm.gainItem(1113164, -1);  进化原材料
+				cm.gainItem(1072634,4,4,4,4,50,50,2,2,0,0,0,0,0,0);
+				cm.gainMeso(200000);
+            cm.sendOk("兑换成功！");
+			cm.worldMessage(6,"玩家：["+cm.getName()+"]在废弃组队用[白雪人法老的蓝宝石]兑换了[绿黏液鞋子]，大家恭喜他/她吧！");
+            cm.dispose();
+			}else{
+            cm.sendOk("#d你的材料不够,需要14个#v4001322##b白雪人法老的蓝宝石#d才可以换.");
+            cm.dispose();
+			}
+		}
+    }
+}
+
+
+
+
+
 
 

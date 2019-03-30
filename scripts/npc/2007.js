@@ -38,7 +38,7 @@ function action(mode, type, selection) {
             text += "#r4.出现假死情况请点击拍卖边上的"+ 聊天 +"按钮即可解除假死#l\r\n\r\n"//3
             text += "#r5.欢迎加入我们的怀旧单机群一起讨论：QQ群542123915#l\r\n\r\n"//3
             cm.sendOk(text);
-            cm.喇叭(3,"欢迎新人！！大家祝贺吧！！！~又是一名新人加入了怀旧冒险岛~！");
+            cm.serverNotice("欢迎新人！！大家祝贺吧！！！~又是一名新人加入了怀旧冒险岛~！");
 		    cm.dispose();
 		}
     }
