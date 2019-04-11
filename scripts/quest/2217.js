@@ -1,5 +1,5 @@
 var status = -1;
-
+importPackage(net.sf.cherry.client);
 function start(mode, type, selection) {
     qm.sendNext("Thank you so much.");
     qm.forceCompleteQuest();

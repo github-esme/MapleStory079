@@ -120,7 +120,7 @@ text += ""+爱心+爱心+爱心+爱心+爱心+爱心+爱心+爱心+爱心+爱心+爱心+爱心+爱心+爱心
             cm.openNpc(9050007, 0);
         } else if (selection == 7999) {//觉醒
             cm.openNpc(9000021, 0);
-        } else if (selection == 8999) {//21点
+        } else if (selection == 8999) {//组队任务
             //cm.openNpc(9330031, 0);
 			cm.openNpc(9310019,0);
         } else if (selection == 9999) {//开锁

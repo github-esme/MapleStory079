@@ -53,14 +53,32 @@ function action(mode, type, selection) {
             cm.warp(103000000,0);
             cm.dispose();
         } else if (selection == 2) {  //废弃组队副本
-            cm.warp(220000000,0);
-            cm.dispose();
+			if (cm.getLevel() < 21 ) {  
+				cm.sendOk("本地图限制等级21级");
+				cm.dispose();
+			} else {
+				cm.warp(220000000,0);
+				cm.dispose();
+				return;
+			}
         } else if (selection == 3) { //玩具组队副本
-            cm.warp(221024500,0);
-            cm.dispose();
+			if (cm.getLevel() < 31 ) {  
+				cm.sendOk("本地图限制等级30级");
+				cm.dispose();
+			} else {
+				cm.warp(221024500,0);
+				cm.dispose();
+				return;
+			}
         } else if (selection == 4) {//天空组队副本
-            cm.warp(200080101,0);
-            cm.dispose();
+			if (cm.getLevel() < 51 ) {  
+				cm.sendOk("本地图限制等级50级");
+				cm.dispose();
+			} else {
+				cm.warp(200080101,0);
+				cm.dispose();	
+				return;
+			}
         } else if (selection == 5) {//毒物组队副本
             cm.warp(251010404,0);
             cm.dispose();
@@ -72,8 +90,14 @@ function action(mode, type, selection) {
 			cm.warp(926010000,0);
             cm.dispose();
         } else if (selection == 8) {//遗址公会对抗战
-			cm.warp(101030104);
-            cm.dispose();
+			if (cm.getLevel() < 41 ) {  
+				cm.sendOk("特殊地图图限制等级40级");
+				cm.dispose();
+			} else {
+				cm.warp(101030104);
+				cm.dispose();
+				return;
+			}
         } else if (selection == 10) {//英语学院副本
             cm.warp(261000011,0);
             cm.dispose();

@@ -4,6 +4,7 @@
 	Description: 		Quest - Roger's Apple
 	任务 - 罗杰和苹果
 */
+//importPackage(net.sf.odims.client.*);
 var status = -1;
 
 function start(mode, type, selection) {
@@ -22,9 +23,8 @@ function start(mode, type, selection) {
         } else if (status == 2) {
             qm.askAcceptDecline("来。。。开个小玩笑怎么样？咦！");
         } else if (status == 3) {
-            if (qm.getPlayerStat("HP") >= 50) {
-               // qm.setHP(-25);
-                //qm.getPlayer().updateSingleStat(MapleStat.HP, 25);
+            if (qm.getPlayerStat("HP") >= 20) {
+			   qm.getPlayer().healHP(1 - qm.getPlayerStat("HP") + 19)
             }
             if (!qm.haveItem(2010007)) {
                 qm.gainItem(2010007, 1);
